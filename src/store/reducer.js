@@ -1,8 +1,14 @@
-import { combineReducers } from "redux";
+const initialState = {
+  data: [],
+};
 
-import authReducer from "./auth/reducer";
-const reducers = combineReducers({
-  root: authReducer,
-});
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "SET_DATA":
+      return { ...state, data: action.payload };
+    default:
+      return state;
+  }
+};
 
-export default reducers;
+export default rootReducer;
