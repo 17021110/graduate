@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TOKEN } from "@/constants/index";
+import { TOKEN } from "../constants/index";
 
 export const setHeaders = (header) => {
   axios.defaults.headers.common = header;

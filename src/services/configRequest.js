@@ -99,7 +99,7 @@ httpClient.interceptors.response.use(
             error.request.responseType === "blob" &&
             error.response.data instanceof Blob &&
             error.response.data.type &&
-            error.response.data.type.toLowerCase().indexOf("json") != -1
+            error.response.data.type.toLowerCase().indexOf("json") !== -1
           ) {
             let errorString = await error.response.data.text();
             message.error(JSON.parse(errorString).message,3);

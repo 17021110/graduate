@@ -1,21 +1,6 @@
-import { toast } from "vue3-toastify";
 import format from "date-fns/format";
 import parse from "date-fns/parse";
 import isBefore from "date-fns/isBefore";
-
-const checkResponse = (
-  response,
-  success = (response) => {},
-  fail = (response) => {
-    toast.error(response.message || "Lỗi");
-  },
-) => {
-  if (response.code === "200") {
-    success(response.data);
-  } else {
-    fail(response.data);
-  }
-};
 
 const formatDate = (date, formatType) => {
   let result = "";
@@ -54,10 +39,10 @@ const removeNullObjects = (obj) => {
 };
 
 export {
-  checkResponse,
   removeNullObjects,
   formatDate,
   convertDate,
   compareDate,
   formatMoney,
+  sumaryNumber,
 };

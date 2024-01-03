@@ -1,6 +1,6 @@
 // sagas.js
 import { takeEvery, put, call } from "redux-saga/effects";
-import { setData } from "./actions";
+import { setData } from "./action";
 import {configService} from "../services/configRequest"
 import { ConstantAPI } from "../services/ConstantAPI";
 function* fetchDataSaga() {
