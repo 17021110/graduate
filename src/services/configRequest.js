@@ -25,9 +25,7 @@ httpClient.interceptors.request.use((config) => {
   } else {
     config.headers = {
       ...headers,
-      Authorization: `Bearer ${getToken()?.access_token}`,
-      "x-company-id": getToken()?.company_id,
-      "X-User-Id": getToken()?.user_id,
+      Authorization: `Bearer ${getToken()?.token}`,
     };
   }
   return config;

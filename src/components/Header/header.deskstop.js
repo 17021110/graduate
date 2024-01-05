@@ -5,7 +5,8 @@ import giohang from "../../assets/images/giohang.svg";
 import message from "../../assets/images/message.svg";
 import {Link} from "react-router-dom";
 
-const Header = ({ children }) => {
+const Header = ({ type }) => {
+  console.log(type)
   return (
     <HeaderWrapper>
       <div className="tw-flex tw-items-center tw-justify-between tw-bg-[#1C1B15] tw-px-[80px] 3xl:tw-px-[150px] tw-py-4">
@@ -22,35 +23,53 @@ const Header = ({ children }) => {
               Đăng nhập
             </Link>
           </div>
-          <div>
-            <Link to="/register" className="tw-text-white tw-text-[16px]">
-              Đăng ký
-            </Link>
-          </div>
+          {type === 1 && (
+            <div>
+              <Link to="/register" className="tw-text-white tw-text-[16px]">
+                Đăng ký
+              </Link>
+            </div>
+          )}
         </div>
       </div>
-      <ul className="tw-bg-[#DC1814] tw-flex tw-items-center tw-justify-center !tw-m-0 tw-py-4 !tw-px-0">
-        <li className="tw-flex tw-items-center tw-justify-center tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          <Link to="/" className="tw-text-white tw-text-[16px]">
-            Trang chủ
-          </Link>
-        </li>
-        <li className="tw-flex tw-items-center tw-justify-center tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Sản phẩm
-        </li>
-        <li className="tw-flex tw-items-center tw-justify-center tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Hướng dẫn chơi mô hình
-        </li>
-        <li className="tw-flex tw-items-center tw-justify-center tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Tin tức - Cập nhật
-        </li>
-        <li className="tw-flex tw-items-center tw-justify-center tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Hỗ trợ Trực tuyến
-        </li>
-        <li className="tw-flex tw-items-center tw-justify-center tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Giới thiệu
-        </li>
-      </ul>
+      {type === 1 ? (
+        <ul className="tw-bg-[#DC1814] tw-flex tw-items-center tw-justify-center !tw-m-0 tw-py-4 !tw-px-0">
+          <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
+            <Link to="/" className="tw-text-white tw-text-[16px]">
+              Trang chủ
+            </Link>
+          </li>
+          <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
+            Sản phẩm
+          </li>
+          <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
+            Hướng dẫn chơi mô hình
+          </li>
+          <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
+            Tin tức - Cập nhật
+          </li>
+          <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
+            Hỗ trợ Trực tuyến
+          </li>
+          <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
+            Giới thiệu
+          </li>
+        </ul>
+      ) : (
+        <ul className="tw-bg-[#DC1814] tw-flex tw-items-center tw-justify-center !tw-m-0 tw-py-4 !tw-px-0">
+          <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
+            <Link to="/admin" className="tw-text-white tw-text-[16px]">
+              Trang chủ
+            </Link>
+          </li>
+          <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
+            Sản phẩm
+          </li>
+          <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
+            Đơn hàng
+          </li>
+        </ul>
+      )}
     </HeaderWrapper>
   );
 };

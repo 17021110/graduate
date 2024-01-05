@@ -16,11 +16,11 @@ import list7 from "../../assets/images/list7.svg"
 import list8 from "../../assets/images/list8.svg";
 import list9 from "../../assets/images/list9.svg";
 
-const HomePage = () => {
+const HomePage = ({type=1}) => {
 
 
   return (
-    <LauoutDefault>
+    <LauoutDefault type={type}>
       <Carousel autoplay autoplaySpeed={5000} speed={1000}>
         <div>
           <img

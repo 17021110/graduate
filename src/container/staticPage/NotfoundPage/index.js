@@ -1,9 +1,9 @@
 import React from "react";
 import LauoutDefault from "../../../components/LauoutDefault";
 import notfound from "../../../assets/images/404.svg";
-const NotfoundPage = () => {
+const NotfoundPage = ({ type =1}) => {
   return (
-    <LauoutDefault>
+    <LauoutDefault type={type}>
       <div className="tw-h-[calc(100vh_-_476px)] tw-w-full">
         <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-p-[80px] tw-bg-[#1C1B15] ">
           <img
