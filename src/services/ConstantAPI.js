@@ -1,7 +1,11 @@
 export const ConstantAPI = {
   auth: {
-    LOGIN: {
-      url: "/authorization-service/oauth/token",
+    LOGIN_USER: {
+      url: "/api/v1/users/login",
+      method: "POST",
+    },
+    LOGIN_ADMIN: {
+      url: "/api/v1/admin/login",
       method: "POST",
     },
     LOGOUT: {
@@ -20,9 +24,9 @@ export const ConstantAPI = {
       url: "/user-service/api/v1/user/reset-password",
       method: "GET",
     },
-    CONSULTION: {
-      url: "/user-service/api/v1/consultant-request",
+    REGISTER_ACOUNT: {
+      url: "/api/v1/users/register",
       method: "POST",
     },
-  }
+  },
 };

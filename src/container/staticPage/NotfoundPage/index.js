@@ -1,5 +1,5 @@
 import React from "react";
-import LauoutDefault from "../../../components/LauoutDefault";
+import LauoutDefault from "../../../components/User/LauoutDefault";
 import notfound from "../../../assets/images/404.svg";
 const NotfoundPage = ({ type =1}) => {
   return (

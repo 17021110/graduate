@@ -1,6 +1,8 @@
 import axios from "axios";
-import { TIME_OUT_API } from "../constants/index";
+import { ConstantAPI } from "./ConstantAPI";
 import { message } from "antd";
+import { getTokenAdmin, setTokenAdmin } from "../utils/index";
+import { TIME_OUT_API } from "../constants/index";
 
 const httpClient = axios.create({
   baseURL: "http://192.168.1.5:4000/",
@@ -10,9 +12,32 @@ const httpClient = axios.create({
   },
 });
 
+httpClient.interceptors.request.use((config) => {
+  const { headers } = config;
+  if (/[\w]*\/oauth\/token/g.test(config.url)) {
+    config.headers = {
+      ...headers,
+      Authorization: "Basic Y2xpZW50MTpzZWNyZXQ=",
+      "Content-Type": "application/x-www-form-urlencoded",
+    };
+  } else {
+    config.headers = {
+      ...headers,
+      Authorization: `Bearer ${getTokenAdmin()?.token}`,
+    };
+  }
+  return config;
+});
+
+let refreshing = false;
+
 httpClient.interceptors.response.use(
   (response) => response.data,
   async (error) => {
+    if (!error.response) {
+      message.error("Failed to load response data");
+      return;
+    }
     const config = error.config;
     if (/[\w]*\/oauth\/token/g.test(config.url) || config.retry) {
       return Promise.reject(error.response.data);
@@ -24,19 +49,50 @@ httpClient.interceptors.response.use(
           : error.response.data.message;
       switch (error.response.status) {
         case 500:
-          message.error("error500",3);
+          message.error("Loading finished", 3);
           break;
         case 499:
-            break;
+          break;
         case 404:
-          message.error("error404",3);
+          message.error("Loading finished", 3);
           break;
         case 403:
-          message.error("error403",3);
+          message.error("Loading finished", 3);
           break;
         case 401:
-          message.error("error403",3);
-          break;
+          try {
+            if (refreshing && !config.retry) {
+              for (let i = 0; i < 10; i++) {
+                await new Promise((r) => setTimeout(r, 100));
+                if (!refreshing) break;
+              }
+              return httpClient(config);
+            }
+            config.retry = true;
+            refreshing = true;
+            const response = await adminRequest.callApi(
+              ConstantAPI.auth.LOGIN,
+              {
+                grant_type: "refresh_token",
+                refresh_token: getTokenAdmin()?.refresh_token,
+              },
+              null,
+              {
+                "Content-Type": "application/x-www-form-urlencoded",
+                Authorization: "Basic Y2xpZW50MTpzZWNyZXQ=",
+              }
+            );
+            setTokenAdmin(JSON.stringify(response));
+            refreshing = false;
+            return httpClient(config);
+          } catch (_error) {
+            (Object.keys(window.localStorage) || []).forEach((key) => {
+              window.localStorage.removeItem(key);
+            });
+            window.location.href = "/login/admin";
+            refreshing = false;
+            return Promise.reject(_error);
+          }
         default:
           if (
             error.request.responseType === "blob" &&
@@ -45,18 +101,20 @@ httpClient.interceptors.response.use(
             error.response.data.type.toLowerCase().indexOf("json") !== -1
           ) {
             let errorString = await error.response.data.text();
-            message.error(JSON.parse(errorString).message,3);
+            message.error(JSON.parse(errorString).message, 3);
             break;
           }
-          message.error(errorMessage,3);
+          message.error(errorMessage, 3);
           break;
       }
     }
-    return Promise.reject(error.response ? error.response.data : error.response);
-  },
+    return Promise.reject(
+      error.response ? error.response.data : error.response
+    );
+  }
 );
 
-class requestNoAuth {
+class adminRequest {
   static callApi(api, data, params, headers) {
     return httpClient({
       method: api.method,
@@ -126,4 +184,4 @@ class requestNoAuth {
   }
 }
 
-export { requestNoAuth };
+export { adminRequest };

@@ -3,10 +3,10 @@ import LayoutWrapper from "./layout.styles";
 import Header from "../Header/index";
 import Footer from "../Footer/index";
 
-const LauoutDefault = ({ type,children }) => {
+const LauoutDefault = ({children }) => {
   return (
     <LayoutWrapper>
-      <Header type={type}></Header>
+      <Header></Header>
       <div className="page-content tw-pt-[146px]">{children}</div>
       <Footer></Footer>
     </LayoutWrapper>

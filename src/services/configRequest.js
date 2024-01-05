@@ -5,12 +5,10 @@ import { getToken, setToken } from "../utils/index";
 import { TIME_OUT_API } from "../constants/index";
 
 const httpClient = axios.create({
-  baseURL: process.env.VITE_API_ENDPOINT,
+  baseURL: "http://192.168.1.5:4000/",
   timeout: TIME_OUT_API,
   headers: {
     "Content-Type": "application/json",
-    // "x-company-id": getToken()?.company_id,
-    // "X-User-Id": getToken()?.user_id,
   },
 });
 
@@ -19,7 +17,7 @@ httpClient.interceptors.request.use((config) => {
   if (/[\w]*\/oauth\/token/g.test(config.url)) {
     config.headers = {
       ...headers,
-      Authorization: process.env.VITE_API_BASIC,
+      Authorization: "Basic Y2xpZW50MTpzZWNyZXQ=",
       "Content-Type": "application/x-www-form-urlencoded",
     };
   } else {
@@ -78,7 +76,7 @@ httpClient.interceptors.response.use(
               null,
               {
                 "Content-Type": "application/x-www-form-urlencoded",
-                Authorization: process.env.VITE_API_BASIC,
+                Authorization: "Basic Y2xpZW50MTpzZWNyZXQ=",
               }
             );
             setToken(JSON.stringify(response));

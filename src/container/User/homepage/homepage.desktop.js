@@ -1,20 +1,20 @@
 import React from "react";
 
-import LauoutDefault from "../../components/LauoutDefault"
+import LauoutDefault from "../../../components/User/LauoutDefault"
 import {Carousel} from "antd";
-import slider1 from "../../assets/images/silder/silder1.png"
-import slider2 from "../../assets/images/silder/slider2.png";
-import slider3 from "../../assets/images/silder/silde4.png";
+import slider1 from "../../../assets/images/silder/silder1.png"
+import slider2 from "../../../assets/images/silder/slider2.png";
+import slider3 from "../../../assets/images/silder/silde4.png";
 
-import list1 from "../../assets/images/list1.svg"
-import list2 from "../../assets/images/list2.svg";
-import list3 from "../../assets/images/list3.svg";
-import list4 from "../../assets/images/list4.svg"
-import list5 from "../../assets/images/list5.svg";
-import list6 from "../../assets/images/list6.svg";
-import list7 from "../../assets/images/list7.svg"
-import list8 from "../../assets/images/list8.svg";
-import list9 from "../../assets/images/list9.svg";
+import list1 from "../../../assets/images/list1.svg"
+import list2 from "../../../assets/images/list2.svg";
+import list3 from "../../../assets/images/list3.svg";
+import list4 from "../../../assets/images/list4.svg"
+import list5 from "../../../assets/images/list5.svg";
+import list6 from "../../../assets/images/list6.svg";
+import list7 from "../../../assets/images/list7.svg"
+import list8 from "../../../assets/images/list8.svg";
+import list9 from "../../../assets/images/list9.svg";
 
 const HomePage = ({type=1}) => {
 

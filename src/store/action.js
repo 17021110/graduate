@@ -13,6 +13,11 @@ export const LoginAdmin = (data) => ({
   payload: { data },
 });
 
+export const RegisterAcount = (data) => ({
+  type: "REGISTER_ACOUNT",
+  payload: { data },
+});
+
 export const setData = (data) => ({
   type: "SET_DATA",
   payload: data,

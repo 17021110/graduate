@@ -1,8 +1,8 @@
 import React from "react";
-import logo from "../../assets/images/sovietmodel.svg";
-import fb from "../../assets/images/facebook.svg";
-import laz from "../../assets/images/lazada.svg";
-import shopee from "../../assets/images/shopee.svg";
+import logo from "../../../assets/images/sovietmodel.svg";
+import fb from "../../../assets/images/facebook.svg";
+import laz from "../../../assets/images/lazada.svg";
+import shopee from "../../../assets/images/shopee.svg";
 const Footer = ({ children }) => {
   return (
     <div className="tw-bg-[#33322C] tw-px-[80px] 3xl:tw-px-[150px]">

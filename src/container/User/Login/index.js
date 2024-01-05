@@ -2,13 +2,13 @@ import React from "react";
 import { useCallback, useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import { Formik, ErrorMessage } from "formik";
-import LauoutDefault from "../../components/LauoutDefault";
+import LauoutDefault from "../../../components/User/LauoutDefault";
 import { Input } from "antd";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import {TOKEN,TOKEN_ADMIN} from "../../constants/index"
+import {TOKEN} from "../../../constants/index"
 
-const Login = ({type=1}) => {
+const Login = () => {
  const dispatch = useDispatch();
 
 const [passwordVisible, setPasswordVisible] = useState(false);
@@ -25,7 +25,7 @@ const [passwordVisible, setPasswordVisible] = useState(false);
   const handleSubmit = useCallback(
     (values) => {
       dispatch({
-        type: type === 1 ? "LOGIN_USER" : "LOGIN_ADMIN",
+        type: "LOGIN_USER",
         payload: values,
       });
     },
@@ -33,13 +33,11 @@ const [passwordVisible, setPasswordVisible] = useState(false);
   );
 
     useEffect(() => {
-       window.localStorage.removeItem(
-         type === 1 ? TOKEN : TOKEN_ADMIN
-       );
+       window.localStorage.removeItem(TOKEN);
     }, []);
 
   return (
-    <LauoutDefault type={type}>
+    <LauoutDefault>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
