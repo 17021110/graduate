@@ -6,6 +6,7 @@ import LoginAdmin from "../container/Admin/Login/index"
 import NotfoundPage from "../container/staticPage/NotfoundPage/index";
 import Login from "../container/User/Login/index";
 import Register from "../container/User/Register/index";
+import Product from "../container/Admin/Product/index"
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/admin/product",
+    element: <Product />,
   },
   {
     path: "*",

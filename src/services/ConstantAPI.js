@@ -29,4 +29,14 @@ export const ConstantAPI = {
       method: "POST",
     },
   },
+  product: {
+    GET_ALL: {
+      url: "/api/v1/product",
+      method: "GET",
+    },
+    CREATE: {
+      url: "/api/v1/product",
+      method: "POST",
+    },
+  },
 };

@@ -18,7 +18,23 @@ export const RegisterAcount = (data) => ({
   payload: { data },
 });
 
+export const adminGetAllProduct = () => ({
+  type: "GET_ALL_PRODUCT_ADMIN",
+});
+
 export const setData = (data) => ({
   type: "SET_DATA",
   payload: data,
 });
+
+export const setDataProductAdmin = (data) => ({
+  type: "SET_DATA_PRODUCT_ADMIN",
+  payload: data,
+});
+
+export const CreateProduct = (data) => ({
+  type: "CREATE_PRODUCT",
+  payload: data,
+});
+
+

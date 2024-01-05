@@ -1,10 +1,11 @@
 // sagas.js
 import { takeEvery, put, call } from "redux-saga/effects";
-import { setData } from "./action";
+import { setData, setDataProductAdmin } from "./action";
 import { setToken, setTokenAdmin } from "../utils/index";
 import {configService} from "../services/configRequest"
 import { ConstantAPI } from "../services/ConstantAPI";
 import {requestNoAuth} from "../services/requestNoAuth";
+import {adminRequest} from "../services/adminRequest";
 import { message } from "antd";
 function* fetchDataSaga() {
   try {
@@ -69,7 +70,46 @@ function* RegisterAcount(data) {
 
     if (response?.success === true) {
       message.success('thành công');
-      
+
+    } else {
+      message.error(response.reason);
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+function* FetchProductAdmin() {
+  try {
+    // Simulate an API call
+    const response = yield call(() =>
+      requestNoAuth.callApi(
+        ConstantAPI.product.GET_ALL,
+        null,
+        null
+      )
+    );
+
+    if (response?.success === true) {
+      yield put(setDataProductAdmin(response?.data?.row));
+    } else {
+      message.error(response.reason);
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+
+function* CreateProduct(data) {
+  try {
+    // Simulate an API call
+    const response = yield call(() =>
+      adminRequest.callApi(ConstantAPI.product.CREATE, data?.payload, null)
+    );
+
+    if (response?.success === true) {
+      message.success('thành công');
     } else {
       message.error(response.reason);
     }
@@ -83,6 +123,8 @@ function* rootSaga() {
   yield takeEvery("LOGIN_USER", LoginUser);
   yield takeEvery("LOGIN_ADMIN", LoginAdmin);
   yield takeEvery("REGISTER_ACOUNT", RegisterAcount);
+  yield takeEvery("GET_ALL_PRODUCT_ADMIN", FetchProductAdmin);
+    yield takeEvery("CREATE_PRODUCT", CreateProduct);
 }
 
 export default rootSaga;
