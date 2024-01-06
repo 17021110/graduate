@@ -20,6 +20,7 @@ const Header = () => {
        return false;
      }
    }, [token]);
+   
    const logout = () => {
      window.localStorage.removeItem(TOKEN);
      redirect("/login");

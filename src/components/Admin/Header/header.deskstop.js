@@ -1,8 +1,6 @@
 import React, { useMemo } from "react";
 import HeaderWrapper from "./header.styles";
 import logo from "../../../assets/images/sovietmodel.svg";
-import giohang from "../../../assets/images/giohang.svg";
-import message from "../../../assets/images/message.svg";
 import { Link } from "react-router-dom";
 import { Dropdown, Space, Avatar } from "antd";
 import { DownOutlined, UserOutlined } from "@ant-design/icons";
@@ -45,8 +43,6 @@ const Header = () => {
           </Link>
         </div>
         <div className="tw-flex tw-items-center tw-justify-end">
-          <img src={message} alt="logo" className="tw-mr-[12px]" />
-          <img src={giohang} alt="logo" className="tw-mr-[12px]" />
           {isAuthenticated === true ? (
             <Dropdown
               menu={{

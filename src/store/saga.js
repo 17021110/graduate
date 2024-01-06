@@ -1,6 +1,11 @@
 // sagas.js
 import { takeEvery, put, call } from "redux-saga/effects";
-import { setData, setDataProductAdmin, adminGetAllProduct } from "./action";
+import {
+  setData,
+  setDataProductAdmin,
+  adminGetAllProduct,
+  setDataProductUser,
+} from "./action";
 import { setToken, setTokenAdmin } from "../utils/index";
 import {configService} from "../services/configRequest"
 import { ConstantAPI } from "../services/ConstantAPI";
@@ -9,7 +14,6 @@ import {adminRequest} from "../services/adminRequest";
 import { message } from "antd";
 function* fetchDataSaga() {
   try {
-    // Simulate an API call
     const data = yield call(() =>
       configService.callApi(ConstantAPI.auth.LOGIN,null,null)
     );
@@ -22,11 +26,9 @@ function* fetchDataSaga() {
 
 function* LoginUser(data) {
   try {
-    // Simulate an API call
     const response = yield call(() =>
       requestNoAuth.callApi(ConstantAPI.auth.LOGIN_USER, { ...data?.payload }, null)
     );
-    console.log(response,'se')
     if (response?.success===true) {
       setToken(JSON.stringify(response));
       window.location.href = "/";
@@ -40,7 +42,6 @@ function* LoginUser(data) {
 
 function* LoginAdmin(data) {
   try {
-    // Simulate an API call
     const response = yield call(() =>
       requestNoAuth.callApi(ConstantAPI.auth.LOGIN_ADMIN,{...data?.payload}, null )
     );
@@ -59,7 +60,6 @@ function* LoginAdmin(data) {
 
 function* RegisterAcount(data) {
   try {
-    // Simulate an API call
     const response = yield call(() =>
       requestNoAuth.callApi(
         ConstantAPI.auth.REGISTER_ACOUNT,
@@ -101,6 +101,23 @@ function* FetchProductAdmin() {
   }
 }
 
+function* FetchProductUser() {
+  try {
+    // Simulate an API call
+    const response = yield call(() =>
+      configService.callApi(ConstantAPI.product.GET_ALL, null, null)
+    );
+
+    if (response?.success === true) {
+      yield put(setDataProductUser(response?.data?.row));
+    } else {
+      message.error(response.reason);
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
 
 function* CreateProduct(data) {
   try {
@@ -126,6 +143,7 @@ function* rootSaga() {
   yield takeEvery("LOGIN_ADMIN", LoginAdmin);
   yield takeEvery("REGISTER_ACOUNT", RegisterAcount);
   yield takeEvery("GET_ALL_PRODUCT_ADMIN", FetchProductAdmin);
+  yield takeEvery("GET_ALL_PRODUCT_USER", FetchProductUser);
   yield takeEvery("CREATE_PRODUCT", CreateProduct);
 }
 

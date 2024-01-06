@@ -32,6 +32,11 @@ export const setDataProductAdmin = (data) => ({
   payload: data,
 });
 
+export const setDataProductUser = (data) => ({
+  type: "SET_DATA_PRODUCT_USER",
+  payload: data,
+});
+
 export const CreateProduct = (data) => ({
   type: "CREATE_PRODUCT",
   payload: data,

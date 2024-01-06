@@ -7,17 +7,26 @@ import {
 } from "react-router-dom";
 
 import { router } from "../src/routes/index";
-import { getTokenAdmin } from "./utils/index";
+import { getTokenAdmin, getToken } from "./utils/index";
 
 const App = () => {
   const publicRoute = router.filter((i) => i.permissions === false);
   const privateRoute = router.filter((i) => i.permissions === true);
-  const token = getTokenAdmin();
+  const token = getToken();
+   const tokenAdmin = getTokenAdmin();
   const isAuthenticated = useMemo(() => {
-    if (token) {
-      return true;
+    if (window.location.pathname.split("/").includes("admin")) {
+      if (tokenAdmin) {
+        return true;
+      } else {
+        return false;
+      }
     } else {
-      return false;
+      if (token) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }, [token]);
 

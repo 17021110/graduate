@@ -9,7 +9,7 @@ export const getToken = () => {
   const token = window.localStorage.getItem(TOKEN);
   // token not exists
   if (!token) {
-    clearStorage();
+    clearStorage(TOKEN);
     return undefined;
   }
 
@@ -20,7 +20,7 @@ export const getTokenAdmin = () => {
   const token = window.localStorage.getItem(TOKEN_ADMIN);
   // token not exists
   if (!token) {
-    clearStorage();
+    clearStorage(TOKEN_ADMIN);
     return undefined;
   }
 
@@ -47,8 +47,6 @@ export const setTokenAdmin = (token) => {
   localStorage.setItem(TOKEN_ADMIN, token);
 };
 
-export const clearStorage = async () => {
-  (Object.keys(window.localStorage) || []).forEach((key) => {
-    window.localStorage.removeItem(key);
-  });
+export const clearStorage = async (key) => {
+  window.localStorage.removeItem(key);
 };
