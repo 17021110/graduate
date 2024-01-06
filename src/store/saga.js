@@ -5,6 +5,7 @@ import {
   setDataProductAdmin,
   adminGetAllProduct,
   setDataProductUser,
+  setLoading,
 } from "./action";
 import { setToken, setTokenAdmin } from "../utils/index";
 import {configService} from "../services/configRequest"
@@ -113,6 +114,7 @@ function* FetchProductUser() {
     } else {
       message.error(response.reason);
     }
+    yield put(setLoading(false));
   } catch (error) {
     console.error("Error fetching data:", error);
   }

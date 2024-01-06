@@ -38,3 +38,9 @@ export const TYPE_LIST = [
   { value: "Other", label: "Other" },
 ];
 
+export const SORT = [
+  { value: "1", label: "Mặc định" },
+  { value: "2", label: "Từ a -> z" },
+  { value: "3", label: "Từ z -> a" },
+];
+

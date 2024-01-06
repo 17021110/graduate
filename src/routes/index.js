@@ -6,7 +6,8 @@ import NotfoundPage from "../container/staticPage/NotfoundPage/index";
 import Login from "../container/User/Login/index";
 import Register from "../container/User/Register/index";
 import Product from "../container/Admin/Product/index";
-import ProductUser from "../container/User/Product/index"
+import ProductUser from "../container/User/Product/index";
+import ProductDetail from "../container/User/ProductDetail/index"
 
 export const router = [
   {
@@ -48,6 +49,12 @@ export const router = [
   {
     path: "/product",
     element: <ProductUser />,
+    permissions: true,
+    exact: true,
+  },
+  {
+    path: "/product/:id",
+    element: <ProductDetail />,
     permissions: true,
     exact: true,
   },

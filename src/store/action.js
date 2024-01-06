@@ -42,4 +42,7 @@ export const CreateProduct = (data) => ({
   payload: data,
 });
 
-
+export const setLoading = (data) => ({
+  type: "SET_LOADING",
+  payload: data,
+});
