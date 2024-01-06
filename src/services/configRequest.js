@@ -5,7 +5,7 @@ import { getToken, setToken } from "../utils/index";
 import { TIME_OUT_API } from "../constants/index";
 
 const httpClient = axios.create({
-  baseURL: "http://192.168.1.5:4000/",
+  baseURL: "https://thang.edtexco.com/",
   timeout: TIME_OUT_API,
   headers: {
     "Content-Type": "application/json",

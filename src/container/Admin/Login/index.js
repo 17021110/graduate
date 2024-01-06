@@ -52,9 +52,9 @@ const [passwordVisible, setPasswordVisible] = useState(false);
                 <div className="tw-text-center tw-text-[24px] tw-font-[700] tw-mb-10">
                   Đăng nhập
                 </div>
-                <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-4">
+                <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                   <div className="tw-w-full">
-                    <div className="tw-mb-2">Tên đăng nhập</div>
+                    <div className="tw-mb-1">Tên đăng nhập</div>
                     <Input
                       name="user_name"
                       value={values.user_name || ""}
@@ -63,12 +63,16 @@ const [passwordVisible, setPasswordVisible] = useState(false);
                       }}
                       placeholder="Nhập tên đăng nhập"
                     />
-                    <ErrorMessage name="user_name" component="div" />
+                    <ErrorMessage
+                      className="invalid"
+                      name="user_name"
+                      component="div"
+                    />
                   </div>
                 </div>
                 <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-8">
                   <div className="tw-w-full">
-                    <div className="tw-mb-2">Mật khẩu</div>
+                    <div className="tw-mb-1">Mật khẩu</div>
                     <Input.Password
                       value={values.password || ""}
                       onChange={(event) => {
@@ -81,10 +85,14 @@ const [passwordVisible, setPasswordVisible] = useState(false);
                       name="password"
                       placeholder="Nhập mật khẩu"
                     />
-                    <ErrorMessage name="password" component="div" />
+                    <ErrorMessage
+                      className="invalid"
+                      name="password"
+                      component="div"
+                    />
                   </div>
                 </div>
-                <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-4">
+                <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                   <button
                     onClick={() => handleSubmit(values)}
                     className="tw-w-full tw-flex tw-items-center tw-justify-center tw-p-2"

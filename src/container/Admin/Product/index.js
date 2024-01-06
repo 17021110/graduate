@@ -85,7 +85,7 @@ const Product = () => {
     dispatch({ type: "GET_ALL_PRODUCT_ADMIN" });
   }, [dispatch]);
   return (
-    <LauoutDefault>
+    <LauoutDefault type={2}>
       <div className="tw-bg-white tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)]">
         <div className="tw-flex tw-items-center tw-justify-end tw-mb-6">
           <Button onClick={showModal} type="primary">
@@ -119,9 +119,9 @@ const Product = () => {
             {({ values, setFieldValue, handleSubmit }) => {
               return (
                 <div className="tw-bg-white tw-rounded-[10px] tw-p-6 tw-flex tw-items-center  tw-flex-col">
-                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-4">
+                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                     <div className="tw-w-full">
-                      <div className="tw-mb-2">Tên sản phẩm</div>
+                      <div className="tw-mb-1">Tên sản phẩm</div>
                       <Input
                         name="name"
                         value={values.name || ""}
@@ -130,12 +130,16 @@ const Product = () => {
                         }}
                         placeholder="Nhập tên sản phẩm"
                       />
-                      <ErrorMessage name="name" component="div" />
+                      <ErrorMessage
+                        className="invalid"
+                        name="name"
+                        component="div"
+                      />
                     </div>
                   </div>
-                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-4">
+                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                     <div className="tw-w-full">
-                      <div className="tw-mb-2">Kích thước sản phẩm</div>
+                      <div className="tw-mb-1">Kích thước sản phẩm</div>
                       <Select
                         name="size"
                         className="tw-w-full"
@@ -146,12 +150,16 @@ const Product = () => {
                         }}
                         options={SIZE_LIST}
                       />
-                      <ErrorMessage name="size" component="div" />
+                      <ErrorMessage
+                        className="invalid"
+                        name="size"
+                        component="div"
+                      />
                     </div>
                   </div>
-                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-4">
+                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                     <div className="tw-w-full">
-                      <div className="tw-mb-2">Kiểu Loại</div>
+                      <div className="tw-mb-1">Kiểu Loại</div>
                       <Select
                         name="type"
                         className="tw-w-full"
@@ -162,12 +170,16 @@ const Product = () => {
                         }}
                         options={TYPE_LIST}
                       />
-                      <ErrorMessage name="type" component="div" />
+                      <ErrorMessage
+                        className="invalid"
+                        name="type"
+                        component="div"
+                      />
                     </div>
                   </div>
-                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-4">
+                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                     <div className="tw-w-full">
-                      <div className="tw-mb-2">Nguồn sản phẩn</div>
+                      <div className="tw-mb-1">Nguồn sản phẩn</div>
                       <Select
                         name="brand"
                         className="tw-w-full"
@@ -178,12 +190,16 @@ const Product = () => {
                         }}
                         options={BRANCH_LIST}
                       />
-                      <ErrorMessage name="brand" component="div" />
+                      <ErrorMessage
+                        className="invalid"
+                        name="brand"
+                        component="div"
+                      />
                     </div>
                   </div>
-                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-4">
+                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                     <div className="tw-w-full">
-                      <div className="tw-mb-2">Quốc gia</div>
+                      <div className="tw-mb-1">Quốc gia</div>
                       <Select
                         name="country"
                         className="tw-w-full"
@@ -194,12 +210,16 @@ const Product = () => {
                         }}
                         options={COUNTRY_LIST}
                       />
-                      <ErrorMessage name="country" component="div" />
+                      <ErrorMessage
+                        className="invalid"
+                        name="country"
+                        component="div"
+                      />
                     </div>
                   </div>
-                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-4">
+                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                     <div className="tw-w-full">
-                      <div className="tw-mb-2">Giá tiền</div>
+                      <div className="tw-mb-1">Giá tiền</div>
                       <Input
                         name="price_each"
                         value={values.price_each || ""}
@@ -208,12 +228,16 @@ const Product = () => {
                         }}
                         placeholder="Nhập  tiền 1 sản phẩm"
                       />
-                      <ErrorMessage name="price_each" component="div" />
+                      <ErrorMessage
+                        className="invalid"
+                        name="price_each"
+                        component="div"
+                      />
                     </div>
                   </div>
-                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-4">
+                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                     <div className="tw-w-full">
-                      <div className="tw-mb-2">Số lượng trong kho</div>
+                      <div className="tw-mb-1">Số lượng trong kho</div>
                       <Input
                         name="product_quantity"
                         value={values.product_quantity || ""}
@@ -222,12 +246,16 @@ const Product = () => {
                         }}
                         placeholder="Nhập số lượng ban đầu"
                       />
-                      <ErrorMessage name="product_quantity" component="div" />
+                      <ErrorMessage
+                        className="invalid"
+                        name="product_quantity"
+                        component="div"
+                      />
                     </div>
                   </div>
-                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-4">
+                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                     <div className="tw-w-full">
-                      <div className="tw-mb-2">Mô tả</div>
+                      <div className="tw-mb-1">Mô tả</div>
                       <Input
                         name="description"
                         value={values.description || ""}
@@ -236,7 +264,11 @@ const Product = () => {
                         }}
                         placeholder="Nhập Mô tả"
                       />
-                      <ErrorMessage name="description" component="div" />
+                      <ErrorMessage
+                        className="invalid"
+                        name="description"
+                        component="div"
+                      />
                     </div>
                   </div>
                   <div className="tw-flex tw-items-center tw-justify-end tw-w-full tw-mb-4">

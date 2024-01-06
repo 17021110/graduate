@@ -1,6 +1,6 @@
 // sagas.js
 import { takeEvery, put, call } from "redux-saga/effects";
-import { setData, setDataProductAdmin } from "./action";
+import { setData, setDataProductAdmin, adminGetAllProduct } from "./action";
 import { setToken, setTokenAdmin } from "../utils/index";
 import {configService} from "../services/configRequest"
 import { ConstantAPI } from "../services/ConstantAPI";
@@ -92,6 +92,7 @@ function* FetchProductAdmin() {
 
     if (response?.success === true) {
       yield put(setDataProductAdmin(response?.data?.row));
+      
     } else {
       message.error(response.reason);
     }
@@ -110,6 +111,7 @@ function* CreateProduct(data) {
 
     if (response?.success === true) {
       message.success('thành công');
+      yield put(adminGetAllProduct());
     } else {
       message.error(response.reason);
     }
@@ -124,7 +126,7 @@ function* rootSaga() {
   yield takeEvery("LOGIN_ADMIN", LoginAdmin);
   yield takeEvery("REGISTER_ACOUNT", RegisterAcount);
   yield takeEvery("GET_ALL_PRODUCT_ADMIN", FetchProductAdmin);
-    yield takeEvery("CREATE_PRODUCT", CreateProduct);
+  yield takeEvery("CREATE_PRODUCT", CreateProduct);
 }
 
 export default rootSaga;
