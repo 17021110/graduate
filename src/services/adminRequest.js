@@ -14,18 +14,10 @@ const httpClient = axios.create({
 
 httpClient.interceptors.request.use((config) => {
   const { headers } = config;
-  if (/[\w]*\/oauth\/token/g.test(config.url)) {
-    config.headers = {
-      ...headers,
-      Authorization: "Basic Y2xpZW50MTpzZWNyZXQ=",
-      "Content-Type": "application/x-www-form-urlencoded",
-    };
-  } else {
-    config.headers = {
-      ...headers,
-      Authorization: `Bearer ${getTokenAdmin()?.data?.token}`,
-    };
-  }
+ config.headers = {
+   ...headers,
+   token: `${getTokenAdmin()?.data?.token}`,
+ };
   return config;
 });
 
@@ -89,7 +81,7 @@ httpClient.interceptors.response.use(
             (Object.keys(window.localStorage) || []).forEach((key) => {
               window.localStorage.removeItem(key);
             });
-            window.location.href = "/login/admin";
+            window.location.href = "/admin/login";
             refreshing = false;
             return Promise.reject(_error);
           }

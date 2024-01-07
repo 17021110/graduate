@@ -1,10 +1,9 @@
 import React from "react";
 import { useCallback, useState, useEffect } from "react";
-import { useNavigation } from "react-navi";
 import LauoutDefault from "../../../components/User/LauoutDefault";
 import { useDispatch, useSelector } from "react-redux";
 import { Empty, Card, Skeleton, Select } from "antd";
-import productImage from "../../../assets/images/productImage.png"
+import productImage from "../../../assets/images/productImage.png";
 import { SORT } from "../../../constants/common";
 import { useNavigate } from "react-router-dom";
 
@@ -16,7 +15,6 @@ const ProductUser = () => {
   const [sort,setSort]=useState("1");
 
   const viewDetail = (id) => {
-    console.log(id)
     navigate(`/product/${id}`);
   };
 

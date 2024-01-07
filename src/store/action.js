@@ -56,3 +56,8 @@ export const CreateCard = (data) => ({
   type: "CREATE_CARD",
   payload: data,
 });
+
+export const setCard = (data) => ({
+  type: "SET_CARD",
+  payload: data,
+});

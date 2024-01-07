@@ -7,6 +7,7 @@ import {
   setDataProductUser,
   setLoading,
   setDataProductDetail,
+  setCard,
 } from "./action";
 import { setToken, setTokenAdmin } from "../utils/index";
 import {configService} from "../services/configRequest"
@@ -83,7 +84,6 @@ function* RegisterAcount(data) {
 
 function* FetchProductAdmin() {
   try {
-    // Simulate an API call
     const response = yield call(() =>
       requestNoAuth.callApi(
         ConstantAPI.product.GET_ALL,
@@ -105,7 +105,6 @@ function* FetchProductAdmin() {
 
 function* FetchProductUser() {
   try {
-    // Simulate an API call
     const response = yield call(() =>
       configService.callApi(ConstantAPI.product.GET_ALL, null, null)
     );
@@ -124,7 +123,6 @@ function* FetchProductUser() {
 
 function* CreateProduct(data) {
   try {
-    // Simulate an API call
     const response = yield call(() =>
       adminRequest.callApi(ConstantAPI.product.CREATE, data?.payload, null)
     );
@@ -142,7 +140,6 @@ function* CreateProduct(data) {
 
 function* FetchProductDeatil(data) {
   try {
-    // Simulate an API call
     const response = yield call(() =>
       configService.get(`${ConstantAPI.product.GET_PRODUCT_BY_ID.url}/${data?.payload?.id}`, null, null)
     );
@@ -160,7 +157,6 @@ function* FetchProductDeatil(data) {
 
 function* CreateCard(data) {
   try {
-    // Simulate an API call
     const response = yield call(() =>
       configService.callApi(ConstantAPI.card.CREATE, data?.payload, null)
     );
@@ -170,6 +166,23 @@ function* CreateCard(data) {
     } else {
       message.error(response.reason);
     }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+function* FetchCard() {
+  try {
+    const response = yield call(() =>
+    configService.callApi(ConstantAPI.card.GET_ALL, null, null)
+    );
+
+    if (response?.success === true) {
+      yield put(setCard(response?.data?.row));
+    } else {
+      message.error(response.reason);
+    }
+    yield put(setLoading(false));
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -185,6 +198,7 @@ function* rootSaga() {
   yield takeEvery("CREATE_PRODUCT", CreateProduct);
   yield takeEvery("GET_PRODUCT_DETAIL", FetchProductDeatil);
   yield takeEvery("CREATE_CARD", CreateCard);
+  yield takeEvery("FETCH_CARD", FetchCard);
 }
 
 export default rootSaga;

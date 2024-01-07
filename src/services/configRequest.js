@@ -14,18 +14,10 @@ const httpClient = axios.create({
 
 httpClient.interceptors.request.use((config) => {
   const { headers } = config;
-  if (/[\w]*\/oauth\/token/g.test(config.url)) {
-    config.headers = {
-      ...headers,
-      Authorization: "Basic Y2xpZW50MTpzZWNyZXQ=",
-      "Content-Type": "application/x-www-form-urlencoded",
-    };
-  } else {
-    config.headers = {
-      ...headers,
-      Authorization: `Bearer ${getToken()?.data?.token}`,
-    };
-  }
+  config.headers = {
+    ...headers,
+    token: `${getToken()?.data?.token}`,
+  };
   return config;
 });
 

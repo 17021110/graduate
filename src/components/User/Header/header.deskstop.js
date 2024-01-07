@@ -8,10 +8,10 @@ import { TOKEN } from "../../../constants/index";
 import { getToken } from "../../../utils/index";
 import { Dropdown, Space, Avatar } from "antd";
 import { DownOutlined, UserOutlined } from "@ant-design/icons";
-import {redirect} from "react-router-dom" 
+import { useNavigate } from "react-router-dom"; 
 const Header = () => {
 
-
+ const navigate = useNavigate();
    const token = getToken();
    const isAuthenticated = useMemo(() => {
      if (token) {
@@ -23,7 +23,7 @@ const Header = () => {
    
    const logout = () => {
      window.localStorage.removeItem(TOKEN);
-     redirect("/login");
+     navigate("/login");
    };
      const items = [
        {
@@ -45,8 +45,12 @@ const Header = () => {
           </Link>
         </div>
         <div className="tw-flex tw-items-center tw-justify-end">
-          <img src={message} alt="logo" className="tw-mr-[12px]" />
-          <img src={giohang} alt="logo" className="tw-mr-[12px]" />
+          <Link to="/" className="tw-mr-[12px]">
+            <img src={message} alt="logo" />
+          </Link>
+          <Link to="/card" className="tw-mr-[12px]">
+            <img src={giohang} alt="logo" />
+          </Link>
           {isAuthenticated === true ? (
             <Dropdown
               menu={{
@@ -90,19 +94,29 @@ const Header = () => {
           </Link>
         </li>
         <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Sản phẩm
+          <Link to="/product" className="tw-text-white tw-text-[16px]">
+            Sản phẩm
+          </Link>
         </li>
         <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Hướng dẫn chơi mô hình
+          <Link to="/guide" className="tw-text-white tw-text-[16px]">
+            Hướng dẫn chơi mô hình
+          </Link>
         </li>
         <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Tin tức - Cập nhật
+          <Link to="/guide" className="tw-text-white tw-text-[16px]">
+            Tin tức - Cập nhật
+          </Link>
         </li>
         <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Hỗ trợ Trực tuyến
+          <Link to="/support" className="tw-text-white tw-text-[16px]">
+            Hỗ trợ Trực tuyến
+          </Link>
         </li>
         <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Giới thiệu
+          <Link to="/recommend" className="tw-text-white tw-text-[16px]">
+            Giới thiệu
+          </Link>
         </li>
       </ul>
     </HeaderWrapper>

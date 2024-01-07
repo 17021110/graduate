@@ -6,9 +6,11 @@ import { Dropdown, Space, Avatar } from "antd";
 import { DownOutlined, UserOutlined } from "@ant-design/icons";
 import { TOKEN_ADMIN } from "../../../constants/index";
 import { getTokenAdmin } from "../../../utils/index";
-import { redirect } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom"; 
 const Header = () => {
 
+
+   const navigate = useNavigate();
    const token = getTokenAdmin();
    const isAuthenticated = useMemo(() => {
      if (token) {
@@ -19,7 +21,7 @@ const Header = () => {
    }, [token]);
   const logout = () => {
     window.localStorage.removeItem(TOKEN_ADMIN);
-    redirect('/login/admin');
+    navigate("/admin/login");
   };
 
   const items = [
@@ -38,7 +40,7 @@ const Header = () => {
     <HeaderWrapper>
       <div className="tw-flex tw-items-center tw-justify-between tw-bg-[#1C1B15] tw-px-[80px] 3xl:tw-px-[150px] tw-py-4">
         <div className="tw-flex tw-items-center">
-          <Link to="/">
+          <Link to="/admin/login">
             <img src={logo} alt="logo" className="logo" />
           </Link>
         </div>

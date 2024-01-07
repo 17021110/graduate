@@ -1,6 +1,6 @@
 import React from "react";
 import { useCallback, useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import LauoutDefault from "../../../components/User/LauoutDefault";
 import { useDispatch, useSelector } from "react-redux";
 import { Tabs, Skeleton, Image, InputNumber, Button, Collapse } from "antd";

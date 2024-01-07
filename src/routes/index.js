@@ -7,13 +7,14 @@ import Login from "../container/User/Login/index";
 import Register from "../container/User/Register/index";
 import Product from "../container/Admin/Product/index";
 import ProductUser from "../container/User/Product/index";
-import ProductDetail from "../container/User/ProductDetail/index"
+import ProductDetail from "../container/User/ProductDetail/index";
+import Card from "../container/User/Card/index";
 
 export const router = [
   {
     path: "/",
     element: <HomePage />,
-    permissions: true,
+    permissions: false,
     exact: true,
   },
   {
@@ -29,7 +30,7 @@ export const router = [
     exact: true,
   },
   {
-    path: "/login/admin",
+    path: "/admin/login",
     element: <LoginAdmin />,
     permissions: false,
     exact: true,
@@ -49,12 +50,18 @@ export const router = [
   {
     path: "/product",
     element: <ProductUser />,
-    permissions: true,
+    permissions: false,
     exact: true,
   },
   {
     path: "/product/:id",
     element: <ProductDetail />,
+    permissions: true,
+    exact: true,
+  },
+  {
+    path: "card",
+    element: <Card />,
     permissions: true,
     exact: true,
   },
