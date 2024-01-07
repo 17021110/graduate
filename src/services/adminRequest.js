@@ -23,7 +23,7 @@ httpClient.interceptors.request.use((config) => {
   } else {
     config.headers = {
       ...headers,
-      Authorization: `Bearer ${getTokenAdmin()?.token}`,
+      Authorization: `Bearer ${getTokenAdmin()?.data?.token}`,
     };
   }
   return config;

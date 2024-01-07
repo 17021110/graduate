@@ -67,8 +67,46 @@ a{
 
 .hoverable-card {
   &:hover {
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5); /* Apply a box shadow on hover */
-    transition: box-shadow 0.3s ease; /* Add a smooth transition effect */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
   }
 
 }
+
+.ant-tabs-tab {
+  .ant-tabs-tab-btn {
+    color:#fff;
+    font-size:16px;
+  }
+
+}
+  .ant-tabs-tab-active {
+    .ant-tabs-tab-btn {
+      color:#DC1814!important;
+      font-weight:500;
+    }
+  }
+
+  .ul-info {
+    list-style: disc;
+    padding-left:20px;
+  }
+
+  .ant-collapse  {
+        border: 0px;
+      .ant-collapse-item {
+        border: 0px;
+        margin-bottom:24px;
+        .ant-collapse-header {
+          background:#ffffff1a;
+          border-radius:8px!important;
+        }
+        .ant-collapse-content-box {
+          background:#33322C;
+        }
+        .ant-collapse-content-active {
+          border:0px;
+           background:#33322C;
+        }
+      }
+  }

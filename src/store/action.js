@@ -46,3 +46,13 @@ export const setLoading = (data) => ({
   type: "SET_LOADING",
   payload: data,
 });
+
+export const setDataProductDetail = (data) => ({
+  type: "SET_PRODUCT_DETAIL",
+  payload: data,
+});
+
+export const CreateCard = (data) => ({
+  type: "CREATE_CARD",
+  payload: data,
+});

@@ -2,6 +2,7 @@ const initialState = {
   data: [],
   listProductAdmin: [],
   listProductUser: [],
+  ProductDetail: {},
   Loading: true,
 };
 
@@ -13,6 +14,8 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, listProductAdmin: action.payload };
     case "SET_DATA_PRODUCT_USER":
       return { ...state, listProductUser: action.payload };
+    case "SET_PRODUCT_DETAIL":
+      return { ...state, ProductDetail: action.payload };
     case "SET_LOADING":
       return { ...state, Loading: action.payload };
     default:

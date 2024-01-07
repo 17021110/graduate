@@ -6,6 +6,7 @@ import {
   adminGetAllProduct,
   setDataProductUser,
   setLoading,
+  setDataProductDetail,
 } from "./action";
 import { setToken, setTokenAdmin } from "../utils/index";
 import {configService} from "../services/configRequest"
@@ -139,6 +140,41 @@ function* CreateProduct(data) {
   }
 }
 
+function* FetchProductDeatil(data) {
+  try {
+    // Simulate an API call
+    const response = yield call(() =>
+      configService.get(`${ConstantAPI.product.GET_PRODUCT_BY_ID.url}/${data?.payload?.id}`, null, null)
+    );
+
+    if (response?.success === true) {
+      yield put(setDataProductDetail(response?.data?.row[0]));
+    } else {
+      message.error(response.reason);
+    }
+    yield put(setLoading(false));
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+function* CreateCard(data) {
+  try {
+    // Simulate an API call
+    const response = yield call(() =>
+      configService.callApi(ConstantAPI.card.CREATE, data?.payload, null)
+    );
+
+    if (response?.success === true) {
+      message.success("thành công");
+    } else {
+      message.error(response.reason);
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
 function* rootSaga() {
   yield takeEvery("FETCH_DATA", fetchDataSaga);
   yield takeEvery("LOGIN_USER", LoginUser);
@@ -147,6 +183,8 @@ function* rootSaga() {
   yield takeEvery("GET_ALL_PRODUCT_ADMIN", FetchProductAdmin);
   yield takeEvery("GET_ALL_PRODUCT_USER", FetchProductUser);
   yield takeEvery("CREATE_PRODUCT", CreateProduct);
+  yield takeEvery("GET_PRODUCT_DETAIL", FetchProductDeatil);
+  yield takeEvery("CREATE_CARD", CreateCard);
 }
 
 export default rootSaga;
