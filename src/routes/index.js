@@ -9,6 +9,8 @@ import Product from "../container/Admin/Product/index";
 import ProductUser from "../container/User/Product/index";
 import ProductDetail from "../container/User/ProductDetail/index";
 import Card from "../container/User/Card/index";
+import Guide from "../container/User/Guide/index";
+import News from "../container/User/News/index"
 
 export const router = [
   {
@@ -60,9 +62,21 @@ export const router = [
     exact: true,
   },
   {
-    path: "card",
+    path: "/card",
     element: <Card />,
     permissions: true,
+    exact: true,
+  },
+  {
+    path: "/guide",
+    element: <Guide />,
+    permissions: false,
+    exact: true,
+  },
+  {
+    path: "/news",
+    element: <News />,
+    permissions: false,
     exact: true,
   },
   {

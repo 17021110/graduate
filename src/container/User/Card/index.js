@@ -1,56 +1,14 @@
 import React from "react";
-import { useCallback, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import LauoutDefault from "../../../components/User/LauoutDefault";
 import { useDispatch, useSelector } from "react-redux";
-import { Table, Empty, Button, Modal, Input, Select } from "antd";
+import { Table, Empty, Button } from "antd";
 import { EyeOutlined } from "@ant-design/icons";
-import * as Yup from "yup";
-import { Formik, ErrorMessage } from "formik";
 import productImage from "../../../assets/images/productImage.png"
 const Card = () => {
   const dispatch = useDispatch();
- const Loading = useSelector((state) => state.Loading);
   const listCard = useSelector((state) => state.listCard);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-
-  const initialValues = {
-    name: "",
-    size: "",
-    brand: "",
-    country: "",
-    type: "",
-    description: "",
-    product_quantity: null,
-    price_each: null,
-  };
-
-  const validationSchema = Yup.object({
-    name: Yup.string().required("Bạn chưa nhập đủ thông tin").trim(),
-    size: Yup.string().required("Bạn chưa nhập đủ thông tin").trim(),
-    brand: Yup.string().required("Bạn chưa nhập đủ thông tin").trim(),
-    country: Yup.string().required("Bạn chưa nhập đủ thông tin").trim(),
-    type: Yup.string().required("Bạn chưa nhập đủ thông tin").trim(),
-    description: "",
-    product_quantity: Yup.string()
-      .required("Bạn chưa nhập đủ thông tin")
-      .trim(),
-    price_each: Yup.string().required("Bạn chưa nhập đủ thông tin").trim(),
-  });
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleSubmit = useCallback(
-    (values) => {
-      dispatch({
-        type: "CREATE_PRODUCT",
-        payload: values,
-      });
-      setIsModalOpen(false);
-    },
-    [initialValues, dispatch]
-  );
 
   const columns = [
     {
