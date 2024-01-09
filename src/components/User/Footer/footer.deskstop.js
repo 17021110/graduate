@@ -5,8 +5,8 @@ import laz from "../../../assets/images/lazada.svg";
 import shopee from "../../../assets/images/shopee.svg";
 const Footer = ({ children }) => {
   return (
-    <div className="tw-bg-[#33322C] tw-px-[80px] 3xl:tw-px-[150px]">
-      <div className="tw-flex tw-justify-between tw-w-full tw-py-10 tw-border-white tw-border-solid tw-border-0 tw-border-b-[1px]">
+    <div className="tw-bg-[#33322C] tw-w-full">
+      <div className="tw-flex tw-justify-between container tw-py-10 tw-border-white tw-border-solid tw-border-0 tw-border-b-[1px]">
         <div className="tw-max-w-[400px] tw-w-1/5 tw-min-w-[200px]">
           <img src={logo} alt="logo" className="tw-mb-10" />
           <div className="tw-flex tw-items-center">
@@ -82,8 +82,10 @@ const Footer = ({ children }) => {
           </div>
         </div>
       </div>
-      <div className="tw-w-full tw-py-6 tw-text-[16px] tw-text-white tw-font-[700]">
-        © 2023 - Đồ án Tốt nghiệp - Nguyễn Lê Duy - 62TH
+      <div className="tw-w-full ">
+        <div className="container tw-py-6 tw-text-[16px] tw-text-white tw-font-[700]">
+            © 2023 - Đồ án Tốt nghiệp - Nguyễn Lê Duy - 62TH
+        </div>
       </div>
     </div>
   );

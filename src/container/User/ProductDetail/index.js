@@ -63,7 +63,7 @@ const item1 = [
       children: Loading ? (
         <Skeleton></Skeleton>
       ) : (
-        <div className="tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)] tw-text-white">
+        <div className="tw-p-6 container 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)] tw-text-white">
           <div className="tw-bg-[#33322C] tw-rounded-[16px] tw-mb-10 tw-p-10 tw-flex">
             <div className="tw-mr-[76px]">
               <Image src={productImage} />
@@ -168,7 +168,7 @@ const item1 = [
       key: "2",
       label: "Đặt hàng thanh toán",
       children: (
-        <div className="tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)] tw-text-white">
+        <div className="tw-p-6 container 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)] tw-text-white">
           Đặt hàng thanh toán
         </div>
       ),
@@ -177,7 +177,7 @@ const item1 = [
       key: "3",
       label: "Chính sách vận chuyển",
       children: (
-        <div className="tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)] tw-text-white">
+        <div className="tw-p-6 container 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)] tw-text-white">
           Chính sách vận chuyển
         </div>
       ),
@@ -186,7 +186,7 @@ const item1 = [
       key: "4",
       label: "Chính sách đổi trả",
       children: (
-        <div className="tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)] tw-text-white">
+        <div className="tw-p-6 container 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)] tw-text-white">
           Chính sách đổi trả
         </div>
       ),

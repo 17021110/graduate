@@ -68,10 +68,10 @@ const HomePage = ({ type = 1 }) => {
           />
         </div>
       </Carousel>
-      <div className="tw-mt-10 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-justify-center tw-h-[275px]">
+      <div className="tw-mt-10 container tw-flex tw-justify-center tw-h-[275px]">
         <div className="tw-relative">
           <img
-            className="tw-absolute tw-right-[300px]"
+            className="tw-absolute tw-right-[200px]"
             alt="vextor-left"
             src={vector}
           />
@@ -89,7 +89,7 @@ const HomePage = ({ type = 1 }) => {
               Nhanh tay rinh ngay khuyến mại - Deal Shock được đề xuất hằng ngày
               của chúng tôi chỉ còn
             </div>
-            <div className="tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-flex-wrap tw-w-full tw-mb-10">
+            <div className="tw-p-6 container tw-flex tw-flex-wrap tw-w-full tw-mb-10">
               {listBuyMuch.map((i) => (
                 <Card
                   key={i.id}
@@ -122,7 +122,7 @@ const HomePage = ({ type = 1 }) => {
               ))}
             </div>
           </div>
-          <div className="tw-px-[80px] 3xl:tw-px-[150px] tw-mb-10">
+          <div className="container tw-mb-10">
             <div className="tw-bg-gradient-to-r tw-from-[#ffffff66] tw-to-[#ffffff0d] tw-py-[80px] tw-px-[100px] tw-rounded-[16px] tw-flex tw-justify-between">
               <div className="tw-w-1/2">
                 <div className="tw-text-white tw-text-[24px] tw-mb-4">
@@ -161,7 +161,7 @@ const HomePage = ({ type = 1 }) => {
               </div>
             </div>
           </div>
-          <div className="tw-mt-10 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-justify-center tw-h-[275px]">
+          <div className="tw-mt-10 container tw-flex tw-justify-center tw-h-[275px]">
             <div className="tw-relative">
               <img
                 className="tw-absolute tw-left-[300px]"
@@ -177,7 +177,7 @@ const HomePage = ({ type = 1 }) => {
             <div className="tw-text-center tw-mb-8 tw-text-[16px] tw-font-[400] tw-text-white">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </div>
-            <div className="tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-flex-wrap tw-w-full tw-mb-10">
+            <div className="tw-p-6 container tw-flex tw-flex-wrap tw-w-full tw-mb-10">
               <div className="tw-w-[33%_-_24px] tw-min-w[300px] tw-max-w-[500px] tw-mr-6">
                 <img alt="blog" src={blog2} />
               </div>
@@ -198,16 +198,16 @@ const HomePage = ({ type = 1 }) => {
               </div>
             </div>
           </div>
-          <div className="tw-mt-10 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-justify-center tw-h-[275px]">
+          <div className="tw-mt-10 container tw-flex tw-justify-center tw-h-[275px]">
             <div className="tw-relative">
               <img
-                className="tw-absolute tw-right-[300px]"
+                className="tw-absolute tw-right-[200px]"
                 alt="vextor-left"
                 src={vector}
               />
             </div>
           </div>
-          <div className="tw-px-[80px] 3xl:tw-px-[150px] tw-mb-10 tw-flex">
+          <div className="container tw-mb-10 tw-flex">
               <div className="tw-w-1/2 tw-flex tw-items-end justify-center tw-flex-col tw-pr-3">
                 <div className=" tw-pt-[50px]">
                   <img alt="blog" src={blog7} className="tw-h-[640px] tw-rounded-[16px]"/>
@@ -219,7 +219,7 @@ const HomePage = ({ type = 1 }) => {
                 <img alt="blog" src={blog9} className="tw-pl-3"/>
               </div>
           </div>
-          <div className="tw-mt-10 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-justify-center tw-h-[275px]">
+          <div className="tw-mt-10 container tw-flex tw-justify-center tw-h-[275px]">
             <div className="tw-relative">
               <img
                 className="tw-absolute tw-left-[300px]"
@@ -235,7 +235,7 @@ const HomePage = ({ type = 1 }) => {
             <div className="tw-text-center tw-mb-10 tw-text-[16px] tw-font-[400] tw-text-white">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </div>
-            <div className="tw-px-[80px] 3xl:tw-px-[150px] tw-mb-10 tw-flex">
+            <div className="container tw-mb-10 tw-flex">
               <div className="tw-w-[60%] tw-flex tw-items-center tw-justify-center">
                 <div className="tw-px-[40px] tw-py-[60px] tw-bg-gradient-to-r tw-from-[#ffffff66] tw-to-[#ffffff0d]">
                   <div className="tw-text-white tw-text-[20px] tw-font-[700]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
@@ -255,7 +255,7 @@ const HomePage = ({ type = 1 }) => {
               </div>
           </div>
           </div>
-          <div className="tw-mt-10 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-justify-center tw-h-[300px]">
+          <div className="tw-mt-10 container tw-flex tw-justify-center tw-h-[300px]">
             <div className="tw-relative">
               <img
                 className="tw-absolute tw-right-[200px]"
@@ -270,7 +270,7 @@ const HomePage = ({ type = 1 }) => {
             <div className="tw-text-center tw-mb-8 tw-text-[16px] tw-font-[400] tw-text-white">
               Nhanh tay rinh ngay khuyến mại - Deal Shock được đề xuất hằng ngày của chúng tôi chỉ còn
             </div>
-            <div className="tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-flex-wrap tw-w-full tw-mb-10">
+            <div className="tw-p-6 container tw-flex tw-flex-wrap tw-w-full tw-mb-10">
               {listBuyMuch.map((i) => (
                 <Card
                   key={i.id}
@@ -302,7 +302,7 @@ const HomePage = ({ type = 1 }) => {
                 </Card>
               ))}
             </div>
-            <div className="tw-mt-10 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-justify-center tw-h-[300px]">
+            <div className="tw-mt-10 container tw-flex tw-justify-center tw-h-[300px]">
             <div className="tw-relative">
               <img
                 className="tw-absolute tw-left-[0px]"
@@ -312,7 +312,7 @@ const HomePage = ({ type = 1 }) => {
             </div>
         
           </div>
-          <div className="tw-px-[80px] 3xl:tw-px-[150px] tw-mb-10">
+          <div className="container tw-mb-10">
               <div className=" tw-bg-[#272621] tw-rounded-[16px] tw-w-full tw-p-[40px] 3xl:tw-p-[80px] tw-flex tw-h-[450px]">
                   <div className="tw-w-[40%] tw-relative tw-flex tw-top-[-200px] tw-mr-[48px]">
                     <div className="tw-absolute tw-h-[900px]">
@@ -328,7 +328,7 @@ const HomePage = ({ type = 1 }) => {
                   </div>
               </div>
             </div>
-            <div className="tw-mt-10 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-justify-center tw-h-[325px]">
+            <div className="tw-mt-10 container tw-flex tw-justify-center tw-h-[325px]">
             <div className="tw-relative">
               <img
                 className="tw-absolute tw-left-[0px]"
@@ -344,7 +344,7 @@ const HomePage = ({ type = 1 }) => {
             <div className="tw-text-center tw-mb-10 tw-text-[16px] tw-font-[400] tw-text-white">
               Deal Shock được đề xuất hằng ngày của chúng tôi diễn ra sau
             </div>
-            <div className="tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] tw-flex tw-flex-wrap tw-w-full tw-mb-10">
+            <div className="tw-p-6 container tw-flex tw-flex-wrap tw-w-full tw-mb-10">
               {listBuyMuch.map((i) => (
                 <Card
                   key={i.id}

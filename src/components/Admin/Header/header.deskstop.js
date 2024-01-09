@@ -38,7 +38,8 @@ const Header = () => {
   ];
   return (
     <HeaderWrapper>
-      <div className="tw-flex tw-items-center tw-justify-between tw-bg-[#1C1B15] tw-px-[80px] 3xl:tw-px-[150px] tw-py-4">
+      <div className="tw-w-full">
+      <div className="tw-flex tw-items-center tw-justify-between tw-bg-[#1C1B15] container tw-py-4">
         <div className="tw-flex tw-items-center">
           <Link to="/admin/login">
             <img src={logo} alt="logo" className="logo" />
@@ -87,6 +88,8 @@ const Header = () => {
           Đơn hàng
         </li>
       </ul>
+      </div>
+    
     </HeaderWrapper>
   );
 };

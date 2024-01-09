@@ -111,3 +111,17 @@ a{
         }
       }
   }
+.container{
+  width: 100%;
+  max-width: 1600px;
+  margin:0px auto;
+  @media(max-width:1600px){
+    max-width: 1450px;
+  }
+  @media(max-width:1500px){
+    max-width: 1366px;
+  }
+  @media(max-width:1366px){
+    max-width: 1200px;
+  }
+}

@@ -25,11 +25,11 @@ const ProductUser = () => {
   return (
     <LauoutDefault>
       {Loading ? (
-        <div className="tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)]">
+        <div className="tw-p-6 container 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)]">
           <Skeleton />
         </div>
       ) : (
-        <div className="tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)]">
+        <div className="tw-p-6 container 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)]">
           <div className="tw-flex tw-items-center tw-justify-between tw-my-6">
             <div className="tw-text-white tw-text-[20px]">
               Tất cả:
