@@ -4,7 +4,7 @@ import notfound from "../../../assets/images/404.svg";
 const NotfoundPage = ({ type =1}) => {
   return (
     <LauoutDefault type={type}>
-      <div className="tw-my-12 3xl:tw-my-0 3xl:tw-h-[calc(100vh_-_476px)] tw-w-full">
+      <div className="tw-my-12  tw-w-full">
         <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-p-[80px] tw-bg-[#1C1B15] ">
           <img
             src={notfound}

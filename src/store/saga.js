@@ -8,6 +8,7 @@ import {
   setLoading,
   setDataProductDetail,
   setCard,
+  fetchCard
 } from "./action";
 import { setToken, setTokenAdmin } from "../utils/index";
 import {configService} from "../services/configRequest"
@@ -173,6 +174,7 @@ function* CreateCard(data) {
 
 function* FetchCard() {
   try {
+    console.log('delete')
     const response = yield call(() =>
     configService.callApi(ConstantAPI.card.GET_ALL, null, null)
     );
@@ -183,6 +185,23 @@ function* FetchCard() {
       message.error(response.reason);
     }
     yield put(setLoading(false));
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+function* DeleteCard(data) {
+  try {
+    const response = yield call(() =>
+      configService.delete(ConstantAPI.card.CREATE.url+'/'+data?.payload?.id, data?.payload, null)
+    );
+
+    if (response?.success === true) {
+      message.success("thành công");
+      yield put(fetchCard());
+    } else {
+      message.error(response.reason);
+    }
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -199,6 +218,7 @@ function* rootSaga() {
   yield takeEvery("GET_PRODUCT_DETAIL", FetchProductDeatil);
   yield takeEvery("CREATE_CARD", CreateCard);
   yield takeEvery("FETCH_CARD", FetchCard);
+  yield takeEvery("DELETE_CARD", DeleteCard);
 }
 
 export default rootSaga;

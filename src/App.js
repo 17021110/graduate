@@ -28,7 +28,7 @@ const App = () => {
         return false;
       }
     }
-  }, [token]);
+  }, [token,tokenAdmin]);
 
   return (
     <Router>

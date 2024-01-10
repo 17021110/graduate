@@ -40,5 +40,9 @@ export const ConstantAPI = {
       url: "/api/v1/cart",
       method: "POST",
     },
+    DELETE:{
+      url: "/api/v1/cart",
+      method: "POST",
+    }
   },
 };

@@ -19,6 +19,7 @@ import list9 from "../../../assets/images/list9.svg";
 const HomePageAdmin = () => {
   return (
     <LauoutDefault>
+      <div className="container">
       <Carousel autoplay autoplaySpeed={5000} speed={1000}>
         <div>
           <img
@@ -53,6 +54,8 @@ const HomePageAdmin = () => {
         <img src={list8} alt="1" className="tw-mr-10"></img>
         <img src={list9} alt="1" className="tw-mr-10"></img>
       </div>
+      </div>
+   
     </LauoutDefault>
   );
 };

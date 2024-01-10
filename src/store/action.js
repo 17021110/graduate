@@ -61,3 +61,12 @@ export const setCard = (data) => ({
   type: "SET_CARD",
   payload: data,
 });
+
+export const DeleteCard = (data) => ({
+  type: "DELETE_CARD",
+  payload: data,
+});
+
+export const fetchCard = () => ({
+  type: "FETCH_CARD",
+});

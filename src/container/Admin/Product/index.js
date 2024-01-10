@@ -47,6 +47,7 @@ const Product = () => {
        });
       setIsModalOpen(false);
     },
+    // eslint-disable-next-line
     [initialValues, dispatch]
   );
     const handleCancel = () => {
@@ -86,7 +87,8 @@ const Product = () => {
   }, [dispatch]);
   return (
     <LauoutDefault type={2}>
-      <div className="tw-bg-white tw-p-6 tw-px-[80px] 3xl:tw-px-[150px] 3xl:tw-my-0 3xl:tw-min-h-[calc(100vh_-_476px)]">
+      <div className="tw-bg-white ">
+      <div className="tw-p-6 container">
         <div className="tw-flex tw-items-center tw-justify-end tw-mb-6">
           <Button onClick={showModal} type="primary">
             Thêm sản phẩm
@@ -289,6 +291,8 @@ const Product = () => {
           </Formik>
         </Modal>
       </div>
+      </div>
+    
     </LauoutDefault>
   );
 };

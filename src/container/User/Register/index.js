@@ -27,6 +27,7 @@ const Register = () => {
         payload: values,
       });
     },
+    // eslint-disable-next-line
     [initialValues, dispatch]
   );
 
@@ -41,7 +42,7 @@ const Register = () => {
       >
         {({ values, setFieldValue, handleSubmit }) => {
           return (
-            <div className="tw-bg-[#1C1B15] tw-flex tw-items-center tw-justify-center tw-my-12 3xl:tw-my-0 3xl:tw-h-[calc(100vh_-_476px)]">
+            <div className="tw-bg-[#1C1B15] tw-flex tw-items-center tw-justify-center tw-my-12 ">
               <div className="tw-bg-white tw-w-[500px] tw-rounded-[10px] tw-shadow-2xl tw-px-6 tw-py-12 tw-flex tw-items-center  tw-flex-col">
                 <div className="tw-text-center tw-text-[24px] tw-font-[700] tw-mb-10">
                   Đăng nhập
