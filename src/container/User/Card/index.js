@@ -8,6 +8,7 @@ import productImage from "../../../assets/images/productImage.png";
 import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { message } from "antd";
+
 const { TextArea } = Input;
 const Card = () => {
   const dispatch = useDispatch();
@@ -108,6 +109,7 @@ const Card = () => {
           type:  "ORDER_PRODUCT",
           payload: {...values,cart_ids:[...selectedRowKeys],} ,
         });
+        
       }else {
         message.error('Bạn chưa chọn đơn đặt hàng');
       }

@@ -9,7 +9,8 @@ import {
   setDataProductDetail,
   setCard,
   fetchCard,
-  setDataOrder
+  setDataOrder,
+  setDataOrderDetail
 } from "./action";
 import { setToken, setTokenAdmin } from "../utils/index";
 import {configService} from "../services/configRequest"
@@ -17,6 +18,7 @@ import { ConstantAPI } from "../services/ConstantAPI";
 import {requestNoAuth} from "../services/requestNoAuth";
 import {adminRequest} from "../services/adminRequest";
 import { message } from "antd";
+
 function* fetchDataSaga() {
   try {
     const data = yield call(() =>
@@ -241,6 +243,24 @@ function* FetchOderAdmin() {
   }
 }
 
+
+function* FetchOderDetail(data) {
+  try {
+    const response = yield call(() =>
+    configService.get(ConstantAPI.order.GET_PRODUCT_BY_ID.url+'/'+data.payload.id, null, null)
+    );
+
+    if (response?.success === true) {
+      yield put(setDataOrderDetail(response?.data));
+    } else {
+      message.error(response.reason);
+    }
+    yield put(setLoading(false));
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
 function* rootSaga() {
   yield takeEvery("FETCH_DATA", fetchDataSaga);
   yield takeEvery("LOGIN_USER", LoginUser);
@@ -255,6 +275,7 @@ function* rootSaga() {
   yield takeEvery("DELETE_CARD", DeleteCard);
   yield takeEvery("ORDER_PRODUCT", OrderProduct);
   yield takeEvery("FETCH_ORDER_ADMIN", FetchOderAdmin);
+  yield takeEvery("FETCH_ORDER_DETAIL", FetchOderDetail);
 }
 
 export default rootSaga;

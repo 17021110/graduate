@@ -4,7 +4,7 @@ import LauoutDefault from "../../../components/Admin/LauoutDefault";
 import { useDispatch, useSelector } from "react-redux";
 import { Table, Empty } from "antd";
 
-const Product = () => {
+const Order = () => {
   const dispatch = useDispatch();
 
   const listOrder = useSelector((state) => state.listOrder);
@@ -72,7 +72,7 @@ const Product = () => {
       <div className="tw-p-6 container">
         {listOrder?.length > 0 ? (
           <Table
-            rowKey={(record) => (record.id ? record.id : new Date().getTime())}
+            rowKey={(record) => (record?.order?.id ? record?.order?.id : new Date().getTime())}
             columns={columns}
             dataSource={listOrder}
             pagination={false}
@@ -87,4 +87,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Order;

@@ -50,28 +50,28 @@ const HomePage = ({ type = 1 }) => {
       <Carousel autoplay autoplaySpeed={5000} speed={1000}>
         <div className="!tw-rounded-[24px] !tw-w-full">
           <img
-            className="!tw-w-full tw-h-[500px] !tw-rounded-[24px]"
+            className="!tw-w-full tw-h-[550px] !tw-rounded-[24px]"
             alt="silder1"
             src={slider1}
           />
         </div>
         <div className="!tw-rounded-[24px] !tw-w-full">
           <img
-            className="!tw-w-full tw-h-[500px] !tw-rounded-[24px]"
+            className="!tw-w-full tw-h-[550px] !tw-rounded-[24px]"
             alt="silder2"
             src={slider2}
           />
         </div>
         <div className="!tw-rounded-[24px] !tw-w-full">
           <img
-            className="!tw-w-full tw-h-[500px] !tw-rounded-[24px]"
+            className="!tw-w-full tw-h-[550px] !tw-rounded-[24px]"
             alt="silder4"
             src={slider3}
           />
         </div>
         <div className="!tw-rounded-[24px] !tw-w-full">
           <img
-            className="!tw-w-full tw-h-[500px] !tw-rounded-[24px]"
+            className="!tw-w-full tw-h-[550px] !tw-rounded-[24px]"
             alt="silder4"
             src={slider4}
           />

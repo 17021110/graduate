@@ -85,3 +85,9 @@ export const setDataOrder = (data) => ({
   type: "SET_ORDER_ADMIN",
   payload: data,
 });
+
+
+export const setDataOrderDetail = (data) => ({
+  type: "SET_ORDER_DETAIL",
+  payload: data,
+});
