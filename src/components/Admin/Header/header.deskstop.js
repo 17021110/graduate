@@ -82,10 +82,14 @@ const Header = () => {
           </Link>
         </li>
         <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Sản phẩm
+        <Link to="/admin/product" className="tw-text-white tw-text-[16px]">
+            Sản phẩm
+          </Link>
         </li>
         <li className="tw-flex tw-items-center tw-justify-center tw-px-4 2xl:tw-px-[36px] tw-border-0 tw-border-r-[1px] tw-border-solid tw-border-[#fff] tw-py-1 tw-text-[#fff] tw-cursor-pointer">
-          Đơn hàng
+        <Link to="/admin/order" className="tw-text-white tw-text-[16px]">
+            Đơn hàng
+          </Link>
         </li>
       </ul>
       </div>

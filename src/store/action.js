@@ -70,3 +70,18 @@ export const DeleteCard = (data) => ({
 export const fetchCard = () => ({
   type: "FETCH_CARD",
 });
+
+
+export const OrderProduct = (data) => ({
+  type: "ORDER_PRODUCT",
+  payload: data,
+});
+
+export const FetchOderAdmin = () => ({
+  type: "FETCH_ORDER_ADMIN",
+});
+
+export const setDataOrder = (data) => ({
+  type: "SET_ORDER_ADMIN",
+  payload: data,
+});

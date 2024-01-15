@@ -8,7 +8,8 @@ import {
   setLoading,
   setDataProductDetail,
   setCard,
-  fetchCard
+  fetchCard,
+  setDataOrder
 } from "./action";
 import { setToken, setTokenAdmin } from "../utils/index";
 import {configService} from "../services/configRequest"
@@ -174,7 +175,6 @@ function* CreateCard(data) {
 
 function* FetchCard() {
   try {
-    console.log('delete')
     const response = yield call(() =>
     configService.callApi(ConstantAPI.card.GET_ALL, null, null)
     );
@@ -207,6 +207,40 @@ function* DeleteCard(data) {
   }
 }
 
+function* OrderProduct(data) {
+  try {
+    const response = yield call(() =>
+      configService.callApi(ConstantAPI.order.CREATE, data?.payload, null)
+    );
+
+    if (response?.success === true) {
+      yield put(fetchCard());
+      message.success("Đặt hàng thành công");
+    } else {
+      message.error(response.reason);
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+function* FetchOderAdmin() {
+  try {
+    const response = yield call(() =>
+    configService.callApi(ConstantAPI.order.GET_ALL, null, null)
+    );
+
+    if (response?.success === true) {
+      yield put(setDataOrder(response?.data?.row));
+    } else {
+      message.error(response.reason);
+    }
+    yield put(setLoading(false));
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
 function* rootSaga() {
   yield takeEvery("FETCH_DATA", fetchDataSaga);
   yield takeEvery("LOGIN_USER", LoginUser);
@@ -219,6 +253,8 @@ function* rootSaga() {
   yield takeEvery("CREATE_CARD", CreateCard);
   yield takeEvery("FETCH_CARD", FetchCard);
   yield takeEvery("DELETE_CARD", DeleteCard);
+  yield takeEvery("ORDER_PRODUCT", OrderProduct);
+  yield takeEvery("FETCH_ORDER_ADMIN", FetchOderAdmin);
 }
 
 export default rootSaga;
