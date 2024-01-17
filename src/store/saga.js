@@ -108,10 +108,10 @@ function* FetchProductAdmin() {
   }
 }
 
-function* FetchProductUser() {
+function* FetchProductUser(data) {
   try {
     const response = yield call(() =>
-      configService.callApi(ConstantAPI.product.GET_ALL, null, null)
+      configService.callApi(ConstantAPI.product.GET_ALL, null, {...data?.payload})
     );
 
     if (response?.success === true) {

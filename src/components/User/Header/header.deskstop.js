@@ -46,7 +46,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="tw-flex tw-items-center tw-justify-end">
-          <Link to="/" className="tw-mr-[12px]">
+          <Link to="/order" className="tw-mr-[12px]">
             <img src={message} alt="logo" />
           </Link>
           <Link to="/card" className="tw-mr-[12px]">
