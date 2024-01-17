@@ -200,7 +200,9 @@ const ProductUser = () => {
                     marginBottom: "24px",
                   }}
                   className="hoverable-card"
-                  cover={<img alt="example" src={productImage} />}
+                  cover={
+                    <img alt="example" src={i?.image_url || productImage} />
+                  }
                   onClick={() => viewDetail(i.id)}
                 >
                   <div>

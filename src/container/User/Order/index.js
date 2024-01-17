@@ -95,6 +95,7 @@ const OrderUser = () => {
               columns={columns}
               dataSource={listOrder}
               pagination={false}
+              bordered
             />
           ) : (
             <Empty />

@@ -137,6 +137,7 @@ const Product = () => {
             columns={columns}
             dataSource={listProductAdmin}
             pagination={false}
+            bordered
           />
         ) : (
           <Empty />

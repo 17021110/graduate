@@ -69,20 +69,22 @@ const Order = () => {
   return (
     <LauoutDefault type={2}>
       <div className="tw-bg-white ">
-      <div className="tw-p-6 container">
-        {listOrder?.length > 0 ? (
-          <Table
-            rowKey={(record) => (record?.order?.id ? record?.order?.id : new Date().getTime())}
-            columns={columns}
-            dataSource={listOrder}
-            pagination={false}
-          />
-        ) : (
-          <Empty />
-        )}
+        <div className="tw-p-6 container">
+          {listOrder?.length > 0 ? (
+            <Table
+              rowKey={(record) =>
+                record?.order?.id ? record?.order?.id : new Date().getTime()
+              }
+              columns={columns}
+              dataSource={listOrder}
+              pagination={false}
+              bordered
+            />
+          ) : (
+            <Empty />
+          )}
+        </div>
       </div>
-      </div>
-    
     </LauoutDefault>
   );
 };

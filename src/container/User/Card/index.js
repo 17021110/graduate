@@ -137,6 +137,7 @@ const Card = () => {
               columns={columns}
               dataSource={listCard}
               pagination={false}
+              bordered
             />
             <div className="tw-p-6 tw-bg-[#33322C] tw-rounded-[16px] tw-mt-10">
               <div className="tw-text-white tw-text-center tw-text-[24px] tw-font-[700] tw-mb-6">Thông tin người nhận</div>
