@@ -43,7 +43,7 @@ const ProductUser = () => {
     brand: "",
     country: [],
     type: [],
-    price_each: [],
+    price_high: [],
   };
 
   const handleCancel = () => {
@@ -52,10 +52,7 @@ const ProductUser = () => {
 
   const handleSubmit = useCallback(
     (values) => {
-      dispatch({
-        type: "CREATE_PRODUCT",
-        payload: values,
-      });
+      console.log(values,'a')
       setOpenModalFilter(false);
     },
     // eslint-disable-next-line
@@ -130,6 +127,7 @@ const ProductUser = () => {
                     minWidth: "200px",
                     marginRight: "24px",
                     padding: "8px",
+                    marginBottom:'24px'
                   }}
                   className="hoverable-card"
                   cover={<img alt="example" src={productImage} />}
@@ -141,7 +139,7 @@ const ProductUser = () => {
                     </div>
                     <div className="tw-flex tw-items-center tw-justify-between">
                       <div className="tw-text-[#FFC43F] tw-text-[18px] tw-font-[700] tw-leading-[36px]">
-                        {i.price_each}VND
+                        {i.price_high}VND
                       </div>
                       <div className="tw-text-white ">
                         SL:<span>{i.product_quantity}</span>
@@ -331,7 +329,7 @@ const ProductUser = () => {
 
                     <Checkbox.Group
                       style={{ width: "100%" }}
-                      onChange={(e) => setFieldValue("price_each", e)}
+                      onChange={(e) => setFieldValue("price_high", e)}
                     >
                       <Space className="tw-px-3 tw-w-full" direction="vertical">
                         {PRICE_LIST.map((i) => {
@@ -341,7 +339,7 @@ const ProductUser = () => {
                               className="tw-flex tw-w-full tw-justify-between"
                             >
                               <div className="tw-text-[#ffffffcc]">{i.label}</div>
-                              <Checkbox name="price_each" value={i.value}></Checkbox>
+                              <Checkbox name="price_high" value={i.value}></Checkbox>
                             </div>
                           );
                         })}

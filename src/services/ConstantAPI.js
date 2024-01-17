@@ -63,4 +63,10 @@ export const ConstantAPI = {
       method: "POST",
     }
   },
+  upload: {
+    UPLOAD_IMAGES: {
+      url: "/api/v1/picture",
+      method: "POST",
+    },
+  },
 };

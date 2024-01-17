@@ -2,17 +2,52 @@ import React from "react";
 import { useCallback, useState, useEffect } from "react";
 import LauoutDefault from "../../../components/Admin/LauoutDefault";
 import { useDispatch, useSelector } from "react-redux";
-import { Table, Empty, Button, Modal, Input, Select } from "antd";
+import { Table, Empty, Button, Modal, Input, Select,Upload, message } from "antd";
 import {EyeOutlined} from "@ant-design/icons";
 import * as Yup from "yup";
 import { Formik, ErrorMessage } from "formik";
 import {BRANCH_LIST,COUNTRY_LIST,SIZE_LIST,TYPE_LIST} from "../../../constants/common"
+import {UploadOutlined} from "@ant-design/icons"
+import {adminRequest} from "../../../services/adminRequest";
+import { ConstantAPI } from "../../../services/ConstantAPI";
 
 const Product = () => {
   const dispatch = useDispatch();
 
   const listProductAdmin = useSelector((state) => state.listProductAdmin);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [fileList, setFileList] = useState([]);
+    const [imageUrl, setImageUrl] = useState("");
+    const beforeUpload = (file) => {
+      const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+      if (!isJpgOrPng) {
+        message.error('Ảnh bắt buộc là png,jpg,...');
+      }
+      const isLt2M = file.size / 1024 / 1024 < 10;
+      if (!isLt2M) {
+        message.error('File quá 10MB');
+      }
+      return isJpgOrPng && isLt2M;
+    };
+
+    const onChange = ({ fileList: newFileList }) => {
+      setFileList(newFileList);
+    };
+    const onRemove = file => {
+      // Handle file removal
+      setFileList(prevList => prevList.filter(item => item.uid !== file.uid));
+    };
+    
+    const customRequest = async({ file, onSuccess, onError }) => {
+      let temp = await adminRequest.upload(ConstantAPI.upload.UPLOAD_IMAGES, { image: file });
+      if (temp) {
+        onSuccess();
+        setImageUrl(`https://thang.edtexco.com/images/${temp?.data?.name}`);
+      } else {
+        onError();
+        message.error('Upload thất bại');
+      }
+    };
 
   const initialValues = {
     name: "",
@@ -23,6 +58,7 @@ const Product = () => {
     description: "",
     product_quantity: null,
     price_each: null,
+    image_url:""
   };
 
   const validationSchema = Yup.object({
@@ -34,6 +70,7 @@ const Product = () => {
     description: "",
     product_quantity: Yup.string().required("Bạn chưa nhập đủ thông tin").trim(),
     price_each: Yup.string().required("Bạn chưa nhập đủ thông tin").trim(),
+    image_url:Yup.string()
   });
 
     const showModal = () => {
@@ -43,7 +80,7 @@ const Product = () => {
     (values) => {
        dispatch({
          type: "CREATE_PRODUCT",
-         payload: values,
+         payload: {...values,image_url:imageUrl},
        });
       setIsModalOpen(false);
     },
@@ -138,6 +175,26 @@ const Product = () => {
                         component="div"
                       />
                     </div>
+                  </div>
+                  <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
+                  <div className="tw-w-full">
+                  <div className="tw-mb-1">Hình ảnh</div>
+                  <Upload
+                    fileList={fileList}
+                    onChange={onChange}
+                    beforeUpload={beforeUpload}
+                    onRemove={onRemove}
+                    customRequest={customRequest}
+                    listType={'picture'}
+                    >
+                      {
+                        fileList?.length===0&&  <div className="tw-flex tw-items-center">
+                        <UploadOutlined />
+                        <div>Upload Image</div>
+                      </div>
+                      }
+                    </Upload>
+                  </div>
                   </div>
                   <div className="tw-flex tw-items-center tw-justify-start tw-w-full tw-mb-3">
                     <div className="tw-w-full">
